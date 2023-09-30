@@ -14,21 +14,20 @@ export default function Exchange() {
 
     useEffect(() => {
         const fetchExchanges = async () => {
-           try {
-            const { data } = await axios.get(`${server}/exchanges`);
-            setExchange(data)
-            setLoading(false)
-            // console.log(data)
-           }
-           catch(error) {
-               setError(true)
-            setLoading(false)
-           }
+            try {
+                const { data } = await axios.get(`${server}/exchanges`);
+                setExchange(data)
+                setLoading(false)
+            }
+            catch (error) {
+                setError(true)
+                setLoading(false)
+            }
         };
         fetchExchanges();
     }, [])
 
-    if(error) return <ErrorComponent/>
+    if (error) return <ErrorComponent />
     return (
 
         <Container maxW={'container.xl'}>
